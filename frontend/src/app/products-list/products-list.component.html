@@ -1,10 +1,10 @@
 <a routerLink="/product/new">Inserir novo</a>
 <table aria-describedby="new product">
     <tr>
-        <th>ID</th>
-        <th>Nome</th>
-        <th>Preço</th>
-        <th>Ações</th>
+        <th id="id">ID</th>
+        <th id="name">Nome</th>
+        <th id="price">Preço</th>
+        <th id="action">Ações</th>
     </tr>
     <tr *ngFor="let product of products">
         <td>{{ product.id }}</td>
