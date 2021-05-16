@@ -1,0 +1,14 @@
+<form>
+    <input type="hidden" name="id" id="id" [(ngModel)]="product.id">
+    <input type="text" name="name" id="name" placeholder="Nome" [(ngModel)]="product.name">
+    <br>
+    <textarea name="description" id="description" placeholder="Descrição" [(ngModel)]="product.description"></textarea>
+    <br>
+    <input type="number" name="price" id="price" placeholder="Preço" [(ngModel)]="product.price">
+    <br>
+    <input type="checkbox" name="active" id="active" [(ngModel)]="product.active">
+    <label for="active">Ativo</label>
+    <br>
+    <a routerLink="/products">Cancelar</a>
+    <button type="button" (click)="save()">Salvar</button>
+</form>

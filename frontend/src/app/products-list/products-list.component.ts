@@ -14,13 +14,28 @@ export class ProductsListComponent implements OnInit {
   constructor(private service: ProductsService) { }
 
   ngOnInit(): void {
-    this.listProducts();
+    this.getAll();
   }
 
-  listProducts() {
-    this.service.getAll().subscribe((products: Product[]) => {
-      this.products = products;
-    });
+  getAll() {
+    this.service.getAll().subscribe((products: Product[]) => this.products = products);
+  }
+
+  delete(id: string) {
+    this.service.delete(id).subscribe(
+      (data: any) => this.callbackSuccess(),
+      (error: any) => this.callBackError(error)
+    );
+  }
+
+  private callbackSuccess() {
+    alert('Produto excluído com sucesso');
+    this.getAll();
+  }
+
+  private callBackError(error: any) {
+    alert('Ocorreu um erro ao excluir');
+    console.log(error);
   }
 
 }

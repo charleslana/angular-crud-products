@@ -22,14 +22,24 @@ productsRoute.post(
     celebrate({
         [Segments.BODY]: {
             name: Joi.string()
-                .pattern(new RegExp('^[a-zA-Z0-9 _]*$'))
-                .trim().min(2).max(50).required().messages({
+                .pattern(new RegExp('^[a-zA-ZÀ-ú0-9 _]*$'))
+                .trim().min(1).max(50).required().messages({
                     'string.base': `"name" deve ser um tipo de 'texto'.`,
                     'string.empty': `"name" não pode ser um campo vazio.`,
                     'string.min': `"name" deve ter um comprimento mínimo de {#limit}.`,
                     'string.max': `"name" deve ter um comprimento máximo de {#limit}.`,
                     'string.pattern.base': `"name" deve ter o padrão exigido {#regex}.`,
                     'any.required': `"name" é um campo obrigatório.`
+                }),
+            description: Joi.string()
+                .pattern(new RegExp('^[a-zA-ZÀ-ú0-9 _]*$'))
+                .trim().min(1).max(500).required().messages({
+                    'string.base': `"description" deve ser um tipo de 'texto'.`,
+                    'string.empty': `"description" não pode ser um campo vazio.`,
+                    'string.min': `"description" deve ter um comprimento mínimo de {#limit}.`,
+                    'string.max': `"description" deve ter um comprimento máximo de {#limit}.`,
+                    'string.pattern.base': `"description" deve ter o padrão exigido {#regex}.`,
+                    'any.required': `"description" é um campo obrigatório.`
                 }),
             price: Joi.number().min(1).max(99999999).required().messages({
                 'number.base': `"price" deve ser um tipo de 'número'.`,
@@ -62,14 +72,24 @@ productsRoute.put(
                 'any.required': `"id" é um campo obrigatório.`
             }),
             name: Joi.string()
-                .pattern(new RegExp('^[a-zA-Z0-9 _]*$'))
-                .trim().min(2).max(50).required().messages({
+                .pattern(new RegExp('^[a-zA-ZÀ-ú0-9 _]*$'))
+                .trim().min(1).max(50).required().messages({
                     'string.base': `"name" deve ser um tipo de 'texto'.`,
                     'string.empty': `"name" não pode ser um campo vazio.`,
                     'string.min': `"name" deve ter um comprimento mínimo de {#limit}.`,
                     'string.max': `"name" deve ter um comprimento máximo de {#limit}.`,
                     'string.pattern.base': `"name" deve ter o padrão exigido {#regex}.`,
                     'any.required': `"name" é um campo obrigatório.`
+                }),
+            description: Joi.string()
+                .pattern(new RegExp('^[a-zA-ZÀ-ú0-9 _]*$'))
+                .trim().min(1).max(500).required().messages({
+                    'string.base': `"description" deve ser um tipo de 'texto'.`,
+                    'string.empty': `"description" não pode ser um campo vazio.`,
+                    'string.min': `"description" deve ter um comprimento mínimo de {#limit}.`,
+                    'string.max': `"description" deve ter um comprimento máximo de {#limit}.`,
+                    'string.pattern.base': `"description" deve ter o padrão exigido {#regex}.`,
+                    'any.required': `"description" é um campo obrigatório.`
                 }),
             price: Joi.number().min(1).max(99999999).required().messages({
                 'number.base': `"price" deve ser um tipo de 'número'.`,
