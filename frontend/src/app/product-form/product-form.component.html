@@ -1,14 +1,31 @@
-<form>
-    <input type="hidden" name="id" id="id" [(ngModel)]="product.id">
-    <input type="text" name="name" id="name" placeholder="Nome" [(ngModel)]="product.name">
-    <br>
-    <textarea name="description" id="description" placeholder="Descrição" [(ngModel)]="product.description"></textarea>
-    <br>
-    <input type="number" name="price" id="price" placeholder="Preço" [(ngModel)]="product.price">
-    <br>
-    <input type="checkbox" name="active" id="active" [(ngModel)]="product.active">
-    <label for="active">Ativo</label>
-    <br>
-    <a routerLink="/products">Cancelar</a>
-    <button type="button" (click)="save()">Salvar</button>
-</form>
+<div class="row mt-3">
+    <div class="col-12">
+        <app-alert #alert></app-alert>
+        <form>
+            <input type="hidden" name="id" id="id" [(ngModel)]="product.id">
+            <div class="form-floating mb-3">
+                <input type="text" class="form-control" name="name" id="name" placeholder="Nome"
+                    [(ngModel)]="product.name">
+                <label for="name">Nome</label>
+            </div>
+            <div class="form-floating mb-3">
+                <textarea class="form-control form-textarea-product" name="description" id="description"
+                    placeholder="Descrição" [(ngModel)]="product.description"></textarea>
+                <label for="description">Descrição</label>
+            </div>
+            <div class="form-floating mb-3">
+                <input class="form-control" type="number" name="price" id="price" placeholder="Preço"
+                    [(ngModel)]="product.price">
+                <label for="price">Preço</label>
+            </div>
+            <div class="form-check form-switch mb-3">
+                <input class="form-check-input" type="checkbox" name="active" id="active" [(ngModel)]="product.active">
+                <label for="active">Ativo</label>
+            </div>
+            <div class="d-flex justify-content-between">
+                <button type="submit" class="btn btn-primary" (click)="save()">Salvar</button>
+                <a class="btn btn-secondary" routerLink="/products" role="button">Cancelar</a>
+            </div>
+        </form>
+    </div>
+</div>

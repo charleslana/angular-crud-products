@@ -1,18 +1,30 @@
-<a routerLink="/product/new">Inserir novo</a>
-<table aria-describedby="new product">
-    <tr>
-        <th id="id">ID</th>
-        <th id="name">Nome</th>
-        <th id="price">Preço</th>
-        <th id="action">Ações</th>
-    </tr>
-    <tr *ngFor="let product of products">
-        <td>{{ product.id }}</td>
-        <td>{{ product.name }}</td>
-        <td>{{ product.price }}</td>
-        <td>
-            <a [routerLink]="'/product/' + product.id">Editar</a>
-            <button type="button" (click)="delete(product.id)">Excluir</button>
-        </td>
-    </tr>
-</table>
+<a class="btn btn-primary" routerLink="/product/new" role="button">Inserir novo</a>
+<div class="row mt-3">
+    <div class="col-12">
+        <app-alert #alert></app-alert>
+        <div class="table-responsive">
+            <table class="table table-striped" aria-describedby="new product">
+                <thead>
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Nome</th>
+                        <th scope="col">Preço</th>
+                        <th scope="col">Ações</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let product of products">
+                        <th scope="row">{{ product.id }}</th>
+                        <td>{{ product.name }}</td>
+                        <td>{{ product.price }}</td>
+                        <td class="p-2">
+                            <a class="btn btn-success m-2" [routerLink]="'/product/' + product.id"
+                                role="button">Editar</a>
+                            <button class="btn btn-danger m-2" type="submit" (click)="delete(product.id)">Excluir</button>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
