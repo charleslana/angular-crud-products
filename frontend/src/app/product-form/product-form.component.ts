@@ -10,13 +10,12 @@ import { ProductsService } from '../services/products.service';
 })
 export class ProductFormComponent implements OnInit {
 
-  product: Product;
+  product = {} as Product;
   errorFields: string[];
 
   @ViewChild('alert') alert;
 
   constructor(protected route: ActivatedRoute, protected router: Router, private service: ProductsService) {
-    this.product = new Product();
     this.product.active = true;
     this.errorFields = [];
   }
