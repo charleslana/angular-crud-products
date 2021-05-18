@@ -1,4 +1,4 @@
-<a class="btn btn-primary" routerLink="/product/new" role="button">Inserir novo</a>
+<app-header title="Produtos" buttonLink="/product/new" buttonText="Inserir novo"></app-header>
 <div class="row mt-3">
     <div class="col-12">
         <app-alert #alert></app-alert>
@@ -20,7 +20,8 @@
                         <td class="p-2">
                             <a class="btn btn-success m-2" [routerLink]="'/product/' + product.id"
                                 role="button">Editar</a>
-                            <button class="btn btn-danger m-2" type="submit" (click)="delete(product.id)">Excluir</button>
+                            <button class="btn btn-danger m-2" type="submit"
+                                (click)="delete(product.id)">Excluir</button>
                         </td>
                     </tr>
                 </tbody>

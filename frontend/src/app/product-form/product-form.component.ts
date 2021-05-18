@@ -52,6 +52,10 @@ export class ProductFormComponent implements OnInit {
     );
   }
 
+  isInvalidField(field) {
+    return (this.errorFields.indexOf(field) !== -1);
+  }
+
   private callbackSuccess() {
     this.router.navigate(['/products']);
   }
@@ -59,15 +63,16 @@ export class ProductFormComponent implements OnInit {
   private callBackError(error: any) {
     console.log(error);
 
-    Object.keys(error.error.validation.body.message).forEach(field => this.errorFields.push(field));
-
-    console.log(this.errorFields);
-    
-
     this.alert.type = 'danger';
 
-    if (error.status === 400) {
+    if (error.error.error === 'Bad Request') {
+      Object.assign(error.error.validation.body.keys).forEach(field => this.errorFields.push(field));
       this.alert.message = 'Não foi possível salvar o registro. Os campos destacados estão inválidos.'
+      return;
+    }
+
+    if (error.error.status === 'error') {
+      this.alert.message = error.error.message;
       return;
     }
 

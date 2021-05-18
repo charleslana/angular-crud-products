@@ -56,7 +56,7 @@ productsRoute.post(
                 'any.required': `"active" é um campo obrigatório.`
             })
         }
-    }),
+    }, { abortEarly: false }),
     productsController.create
 );
 

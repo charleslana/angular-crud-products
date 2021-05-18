@@ -37,9 +37,15 @@ export class ProductsListComponent implements OnInit {
   }
 
   private callBackError(error: any) {
-    this.alert.type = 'danger';
-    this.alert.message = 'Ocorreu um erro ao excluir.';
     console.log(error);
-  }
 
+    this.alert.type = 'danger';
+
+    if (error.error.status === 'error') {
+      this.alert.message = error.error.message;
+      return;
+    }
+
+    this.alert.message = 'Ocorreu um erro ao excluir.';
+  }
 }
