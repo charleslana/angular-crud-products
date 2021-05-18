@@ -72,10 +72,11 @@ export class ProductFormComponent implements OnInit {
     }
 
     if (error.error.status === 'error') {
+      this.errorFields.push('name');
       this.alert.message = error.error.message;
       return;
     }
 
-    this.alert.message = 'Ocorreu um erro ao salvar.';
+    this.alert.message = 'Ocorreu um erro ao processar a ação.';
   }
 }

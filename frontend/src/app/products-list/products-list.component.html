@@ -9,6 +9,7 @@
                         <th scope="col">ID</th>
                         <th scope="col">Nome</th>
                         <th scope="col">Preço</th>
+                        <th scope="col">Ativo</th>
                         <th scope="col">Ações</th>
                     </tr>
                 </thead>
@@ -17,6 +18,12 @@
                         <th scope="row">{{ product.id }}</th>
                         <td>{{ product.name }}</td>
                         <td>{{ product.price }}</td>
+                        <td>
+                            <div class="form-check form-switch">
+                                <input class="form-check-input" type="checkbox" id="active" name="active"
+                                    (click)="toggleActive(product.id, product.active)" [(ngModel)]="product.active">
+                            </div>
+                        </td>
                         <td class="p-2">
                             <a class="btn btn-success m-2" [routerLink]="'/product/' + product.id"
                                 role="button">Editar</a>

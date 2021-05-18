@@ -24,8 +24,17 @@ export class ProductsListComponent implements OnInit {
   }
 
   delete(id: string) {
+    this.alert.message = '';
     this.service.delete(id).subscribe(
       (data: any) => this.callbackSuccess(data.message),
+      (error: any) => this.callBackError(error)
+    );
+  }
+
+  toggleActive(id, active) {
+    this.alert.message = '';
+    this.service.updateActive(id, !active).subscribe(
+      (data: any) => this.callbackSuccess('Alterado com sucesso.'),
       (error: any) => this.callBackError(error)
     );
   }
@@ -46,6 +55,6 @@ export class ProductsListComponent implements OnInit {
       return;
     }
 
-    this.alert.message = 'Ocorreu um erro ao excluir.';
+    this.alert.message = 'Ocorreu um erro ao processar a ação.';
   }
 }
