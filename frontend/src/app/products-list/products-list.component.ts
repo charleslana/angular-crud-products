@@ -31,7 +31,7 @@ export class ProductsListComponent implements OnInit {
     );
   }
 
-  toggleActive(id, active) {
+  toggleActive(id: string, active: boolean) {
     this.alert.message = '';
     this.service.updateActive(id, !active).subscribe(
       (data: any) => this.callbackSuccess('Alterado com sucesso.'),
